@@ -1,0 +1,877 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Fonts/TimesSS/TimesHeader18.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/SaveMenu.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/TimesSS/TIMESS__.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scripts/NewItemPopup.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/InventoryMgr.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/LoadMenu.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/NewProfileMenu.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Icons/weapon.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Icons/container.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Icons/misc.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Icons/potion.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=8]
+size = 46
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+outline_color = Color( 0.635294, 0.635294, 0.635294, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 28
+font_data = ExtResource( 4 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryMgr" type="Control" parent="UILayer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="UILayer/InventoryMgr"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.207843, 0.145098, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Type" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 53.0
+margin_top = 150.0
+margin_right = 115.0
+margin_bottom = 183.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/Type"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.5
+margin_top = -10.5
+margin_right = 31.5
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Type"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quantity" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 118.0
+margin_top = 150.0
+margin_right = 203.0
+margin_bottom = 183.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/Quantity"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.5
+margin_top = -10.5
+margin_right = 31.5
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Quantity"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameButton" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 206.0
+margin_top = 150.0
+margin_right = 555.0
+margin_bottom = 183.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/NameButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -10.5
+margin_right = 25.0
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Name"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeightButton" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 558.5
+margin_top = 150.0
+margin_right = 661.5
+margin_bottom = 183.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/WeightButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.5
+margin_right = 45.0
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Weight (lbs)"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ValueButton" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 665.5
+margin_top = 150.0
+margin_right = 768.5
+margin_bottom = 183.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/ValueButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.5
+margin_right = 45.0
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Value"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotesButton" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 773.0
+margin_top = 150.0
+margin_right = 1193.0
+margin_bottom = 183.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/NotesButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.5
+margin_right = 45.0
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Notes"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddItemButton" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 1590.0
+margin_top = 118.0
+margin_right = 1693.0
+margin_bottom = 156.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/AddItemButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.5
+margin_right = 45.0
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Add Item"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemTypes" type="VBoxContainer" parent="UILayer/InventoryMgr"]
+margin_left = 55.0
+margin_top = 196.0
+margin_right = 140.0
+margin_bottom = 1016.0
+rect_min_size = Vector2( 0, 20 )
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quantities" type="VBoxContainer" parent="UILayer/InventoryMgr"]
+margin_left = 118.0
+margin_top = 196.0
+margin_right = 203.0
+margin_bottom = 1016.0
+rect_min_size = Vector2( 0, 20 )
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Names" type="VBoxContainer" parent="UILayer/InventoryMgr"]
+margin_left = 206.0
+margin_top = 196.0
+margin_right = 555.0
+margin_bottom = 1020.0
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weights" type="VBoxContainer" parent="UILayer/InventoryMgr"]
+margin_left = 560.0
+margin_top = 196.0
+margin_right = 663.0
+margin_bottom = 1020.0
+custom_constants/separation = 32
+
+[node name="Values" type="VBoxContainer" parent="UILayer/InventoryMgr"]
+margin_left = 665.5
+margin_top = 196.0
+margin_right = 768.5
+margin_bottom = 1020.0
+custom_constants/separation = 32
+
+[node name="Notes" type="VBoxContainer" parent="UILayer/InventoryMgr"]
+margin_left = 774.0
+margin_top = 196.0
+margin_right = 1193.0
+margin_bottom = 1020.0
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadButton" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 1659.0
+margin_top = 22.0
+margin_right = 1762.0
+margin_bottom = 62.0
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/LoadButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.5
+margin_top = -10.5
+margin_right = 45.5
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Load Profile"
+align = 1
+
+[node name="NewProfileButton" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 1548.3
+margin_top = 22.0
+margin_right = 1651.3
+margin_bottom = 62.0
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/NewProfileButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.5
+margin_top = -10.5
+margin_right = 45.5
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "New Profile"
+align = 1
+
+[node name="SaveButton" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 1771.47
+margin_top = 22.0
+margin_right = 1874.47
+margin_bottom = 62.0
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/SaveButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.5
+margin_top = -10.5
+margin_right = 44.5
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Save Profile"
+align = 1
+
+[node name="CharacterNameLabel" type="Label" parent="UILayer/InventoryMgr"]
+margin_left = 76.0
+margin_top = 32.0
+margin_right = 1527.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 8 )
+text = "Character Name"
+
+[node name="MainMenu" type="Control" parent="UILayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="UILayer/MainMenu"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.27451, 0.188235, 0.294118, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewItemPopup" type="Control" parent="UILayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UILayer/NewItemPopup"]
+margin_left = 584.0
+margin_top = 372.0
+margin_right = 1264.0
+margin_bottom = 726.0
+color = Color( 0.355109, 0.249023, 0.375, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeaderLabel" type="Label" parent="UILayer/NewItemPopup"]
+margin_left = 613.0
+margin_top = 380.0
+margin_right = 1229.0
+margin_bottom = 411.0
+custom_fonts/font = SubResource( 1 )
+text = "Add New Item"
+align = 1
+
+[node name="ItemNameLabel" type="Label" parent="UILayer/NewItemPopup"]
+margin_left = 630.0
+margin_top = 411.0
+margin_right = 762.0
+margin_bottom = 442.0
+custom_fonts/font = SubResource( 1 )
+text = "Item Name"
+align = 1
+
+[node name="ItemNameField" type="LineEdit" parent="UILayer/NewItemPopup"]
+margin_left = 630.0
+margin_top = 442.0
+margin_right = 1229.0
+margin_bottom = 482.0
+custom_fonts/font = SubResource( 2 )
+
+[node name="QuantityLabel" type="Label" parent="UILayer/NewItemPopup"]
+margin_left = 630.0
+margin_top = 488.0
+margin_right = 731.0
+margin_bottom = 519.0
+custom_fonts/font = SubResource( 1 )
+text = "Quantity"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuantityField" type="LineEdit" parent="UILayer/NewItemPopup"]
+margin_left = 630.0
+margin_top = 524.675
+margin_right = 732.0
+margin_bottom = 564.675
+custom_fonts/font = SubResource( 2 )
+
+[node name="WeightLabel" type="Label" parent="UILayer/NewItemPopup"]
+margin_left = 748.879
+margin_top = 488.0
+margin_right = 849.879
+margin_bottom = 519.0
+custom_fonts/font = SubResource( 1 )
+text = "Weight"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeightField" type="LineEdit" parent="UILayer/NewItemPopup"]
+margin_left = 748.879
+margin_top = 524.675
+margin_right = 850.879
+margin_bottom = 564.675
+custom_fonts/font = SubResource( 2 )
+
+[node name="ValueLabel" type="Label" parent="UILayer/NewItemPopup"]
+margin_left = 865.057
+margin_top = 488.0
+margin_right = 966.057
+margin_bottom = 519.0
+custom_fonts/font = SubResource( 1 )
+text = "Value"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ValueField" type="LineEdit" parent="UILayer/NewItemPopup"]
+margin_left = 865.057
+margin_top = 524.675
+margin_right = 967.057
+margin_bottom = 564.675
+custom_fonts/font = SubResource( 2 )
+
+[node name="TypeLabel" type="Label" parent="UILayer/NewItemPopup"]
+margin_left = 1000.0
+margin_top = 488.0
+margin_right = 1109.0
+margin_bottom = 519.0
+custom_fonts/font = SubResource( 1 )
+text = "Item Type"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotesLabel" type="Label" parent="UILayer/NewItemPopup"]
+margin_left = 630.0
+margin_top = 573.377
+margin_right = 731.0
+margin_bottom = 604.377
+custom_fonts/font = SubResource( 1 )
+text = "Notes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotesField" type="LineEdit" parent="UILayer/NewItemPopup"]
+margin_left = 630.0
+margin_top = 610.0
+margin_right = 1229.0
+margin_bottom = 655.0
+custom_fonts/font = SubResource( 2 )
+
+[node name="DoneButton" type="Button" parent="UILayer/NewItemPopup"]
+margin_left = 762.0
+margin_top = 669.0
+margin_right = 1088.0
+margin_bottom = 715.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/NewItemPopup/DoneButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -153.5
+margin_top = -17.0
+margin_right = 153.5
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 3 )
+text = "Done"
+align = 1
+
+[node name="WeaponButton" type="Button" parent="UILayer/NewItemPopup"]
+margin_left = 979.0
+margin_top = 527.0
+margin_right = 1023.0
+margin_bottom = 571.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UILayer/NewItemPopup/WeaponButton"]
+position = Vector2( 23.3427, 21.832 )
+texture = ExtResource( 9 )
+
+[node name="ArmorButton" type="Button" parent="UILayer/NewItemPopup"]
+margin_left = 1025.01
+margin_top = 527.0
+margin_right = 1069.01
+margin_bottom = 571.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UILayer/NewItemPopup/ArmorButton"]
+position = Vector2( 23.3427, 21.832 )
+texture = ExtResource( 9 )
+
+[node name="ContainerButton" type="Button" parent="UILayer/NewItemPopup"]
+margin_left = 1072.34
+margin_top = 527.0
+margin_right = 1116.34
+margin_bottom = 571.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UILayer/NewItemPopup/ContainerButton"]
+position = Vector2( 23.3427, 21.832 )
+texture = ExtResource( 10 )
+
+[node name="PotionButton" type="Button" parent="UILayer/NewItemPopup"]
+margin_left = 1119.84
+margin_top = 527.0
+margin_right = 1163.84
+margin_bottom = 571.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UILayer/NewItemPopup/PotionButton"]
+position = Vector2( 23.3427, 21.832 )
+texture = ExtResource( 12 )
+
+[node name="MiscButton" type="Button" parent="UILayer/NewItemPopup"]
+margin_left = 1167.73
+margin_top = 527.0
+margin_right = 1211.73
+margin_bottom = 571.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UILayer/NewItemPopup/MiscButton"]
+position = Vector2( 23.3427, 21.832 )
+texture = ExtResource( 11 )
+
+[node name="SaveMenu" type="Control" parent="UILayer"]
+visible = false
+margin_left = 613.0
+margin_top = 264.0
+margin_right = 1298.0
+margin_bottom = 502.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UILayer/SaveMenu"]
+margin_right = 685.0
+margin_bottom = 238.0
+color = Color( 0.27451, 0.188235, 0.294118, 1 )
+
+[node name="CancelButton" type="Button" parent="UILayer/SaveMenu"]
+margin_left = 349.0
+margin_top = 147.0
+margin_right = 549.0
+margin_bottom = 188.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/SaveMenu/CancelButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -10.5
+margin_right = 25.0
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Cancel"
+align = 1
+
+[node name="ConfirmButton" type="Button" parent="UILayer/SaveMenu"]
+margin_left = 128.233
+margin_top = 147.287
+margin_right = 328.233
+margin_bottom = 188.287
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/SaveMenu/ConfirmButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.5
+margin_top = -10.5
+margin_right = 30.5
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Confirm"
+align = 1
+
+[node name="FileNameField" type="LineEdit" parent="UILayer/SaveMenu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -241.5
+margin_top = 85.0
+margin_right = 241.5
+margin_bottom = 126.0
+custom_fonts/font = ExtResource( 1 )
+placeholder_text = "new_profile"
+
+[node name="Label" type="Label" parent="UILayer/SaveMenu"]
+margin_left = 103.0
+margin_top = 36.0
+margin_right = 548.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 4 )
+text = "Save Profile As"
+
+[node name="LoadMenu" type="Control" parent="UILayer"]
+visible = false
+margin_left = 584.0
+margin_top = 139.0
+margin_right = 1269.0
+margin_bottom = 919.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="UILayer/LoadMenu"]
+margin_right = 685.0
+margin_bottom = 780.0
+color = Color( 0.27451, 0.188235, 0.294118, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileNameBackground" type="ColorRect" parent="UILayer/LoadMenu"]
+margin_left = 58.0
+margin_top = 21.0
+margin_right = 543.0
+margin_bottom = 89.0
+color = Color( 0.188235, 0.145098, 0.2, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileToLoadLabel" type="Label" parent="UILayer/LoadMenu/FileNameBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -233.5
+margin_top = -17.0
+margin_right = 233.5
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 5 )
+text = "Text"
+align = 1
+
+[node name="LoadButton" type="Button" parent="UILayer/LoadMenu"]
+margin_left = 567.0
+margin_top = 13.0
+margin_right = 669.0
+margin_bottom = 49.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/LoadMenu/LoadButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -10.5
+margin_right = 20.0
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Load"
+align = 1
+
+[node name="CancelButton" type="Button" parent="UILayer/LoadMenu"]
+margin_left = 567.0
+margin_top = 59.5819
+margin_right = 669.0
+margin_bottom = 95.5819
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/LoadMenu/CancelButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -10.5
+margin_right = 25.0
+margin_bottom = 10.5
+custom_fonts/font = ExtResource( 1 )
+text = "Cancel"
+align = 1
+
+[node name="SaveButtons" type="VBoxContainer" parent="UILayer/LoadMenu"]
+margin_left = 58.0
+margin_top = 125.0
+margin_right = 423.0
+margin_bottom = 736.0
+custom_constants/separation = 42
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewProfileMenu" type="Control" parent="UILayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="UILayer/NewProfileMenu"]
+margin_left = 584.0
+margin_top = 139.0
+margin_right = 1269.0
+margin_bottom = 488.0
+color = Color( 0.27451, 0.188235, 0.294118, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterNameField" type="LineEdit" parent="UILayer/NewProfileMenu"]
+margin_left = 651.0
+margin_top = 249.0
+margin_right = 1182.0
+margin_bottom = 296.0
+custom_fonts/font = ExtResource( 1 )
+placeholder_text = "Character name"
+
+[node name="ClassField" type="LineEdit" parent="UILayer/NewProfileMenu"]
+margin_left = 651.0
+margin_top = 325.0
+margin_right = 1182.0
+margin_bottom = 372.0
+custom_fonts/font = ExtResource( 1 )
+placeholder_text = "Character class"
+
+[node name="CreateButton" type="Button" parent="UILayer/NewProfileMenu"]
+margin_left = 714.0
+margin_top = 390.0
+margin_right = 878.0
+margin_bottom = 435.0
+
+[node name="Label" type="Label" parent="UILayer/NewProfileMenu/CreateButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -14.0
+margin_right = 32.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 6 )
+text = "Create"
+align = 1
+
+[node name="CancelButton" type="Button" parent="UILayer/NewProfileMenu"]
+margin_left = 950.0
+margin_top = 390.0
+margin_right = 1114.0
+margin_bottom = 435.0
+
+[node name="Label" type="Label" parent="UILayer/NewProfileMenu/CancelButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -14.0
+margin_right = 32.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 6 )
+text = "Cancel"
+align = 1
+
+[node name="Label" type="Label" parent="UILayer/NewProfileMenu"]
+margin_left = 630.0
+margin_top = 177.0
+margin_right = 1229.0
+margin_bottom = 211.0
+custom_fonts/font = SubResource( 7 )
+text = "Create New Character Profile"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="UILayer/InventoryMgr/AddItemButton" to="UILayer/InventoryMgr" method="_on_AddItemButton_pressed"]
+[connection signal="pressed" from="UILayer/InventoryMgr/LoadButton" to="UILayer/LoadMenu" method="_on_open_load_menu"]
+[connection signal="pressed" from="UILayer/InventoryMgr/NewProfileButton" to="UILayer/NewProfileMenu" method="_on_NewProfileButton_pressed"]
+[connection signal="pressed" from="UILayer/InventoryMgr/SaveButton" to="UILayer/SaveMenu" method="_on_SaveMenu_open"]
+[connection signal="add_new_item" from="UILayer/NewItemPopup" to="UILayer/InventoryMgr" method="_on_NewItemPopup_add_new_item"]
+[connection signal="pressed" from="UILayer/NewItemPopup/DoneButton" to="UILayer/NewItemPopup" method="_on_DoneButton_pressed"]
+[connection signal="pressed" from="UILayer/NewItemPopup/WeaponButton" to="UILayer/NewItemPopup" method="_on_WeaponButton_pressed"]
+[connection signal="pressed" from="UILayer/NewItemPopup/ArmorButton" to="UILayer/NewItemPopup" method="_on_ArmorButton_pressed"]
+[connection signal="pressed" from="UILayer/NewItemPopup/ContainerButton" to="UILayer/NewItemPopup" method="_on_ContainerButton_pressed"]
+[connection signal="pressed" from="UILayer/NewItemPopup/PotionButton" to="UILayer/NewItemPopup" method="_on_PotionButton_pressed"]
+[connection signal="pressed" from="UILayer/NewItemPopup/MiscButton" to="UILayer/NewItemPopup" method="_on_MiscButton_pressed"]
+[connection signal="save_as" from="UILayer/SaveMenu" to="." method="_on_SaveMenu_save_as"]
+[connection signal="pressed" from="UILayer/SaveMenu/CancelButton" to="UILayer/SaveMenu" method="_on_CancelButton_pressed"]
+[connection signal="pressed" from="UILayer/SaveMenu/ConfirmButton" to="UILayer/SaveMenu" method="_on_ConfirmButton_pressed"]
+[connection signal="load_profile" from="UILayer/LoadMenu" to="." method="_on_LoadMenu_load_profile"]
+[connection signal="pressed" from="UILayer/LoadMenu/LoadButton" to="UILayer/LoadMenu" method="_on_LoadButton_pressed"]
+[connection signal="pressed" from="UILayer/LoadMenu/CancelButton" to="UILayer/LoadMenu" method="_on_CancelButton_pressed"]
+[connection signal="new_profile" from="UILayer/NewProfileMenu" to="UILayer/InventoryMgr" method="_on_NewProfileMenu_new_profile"]
+[connection signal="pressed" from="UILayer/NewProfileMenu/CreateButton" to="UILayer/NewProfileMenu" method="_on_CreateButton_pressed"]
+[connection signal="pressed" from="UILayer/NewProfileMenu/CancelButton" to="UILayer/NewProfileMenu" method="_on_CancelButton_pressed"]
