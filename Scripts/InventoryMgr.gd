@@ -10,7 +10,8 @@ onready var item_icons = {
 	"Potion": load("res://Assets/Icons/potion.png"),
 	"Misc": load("res://Assets/Icons/misc.png")}
 onready var items = {}
-onready var character_name = "New Character"
+onready var character_name_string = "New Character"
+onready var character_class_string = " "
 
 
 func _on_NewItemPopup_add_new_item(item_stats):
@@ -20,46 +21,56 @@ func _on_NewItemPopup_add_new_item(item_stats):
 
 func reset():
 	items = {}
-	$CharacterNameLabel.text = character_name
-	update_list()
+	character_name_string = " "
+	character_class_string = " "
+	for each in $StatColumns/ItemTypes.get_children():
+		each.queue_free()
+	for each in $StatColumns/Quantities.get_children():
+		each.queue_free()
+	for each in $StatColumns/Names.get_children():
+		each.queue_free()
+	for each in $StatColumns/Weights.get_children():
+		each.queue_free()
+	for each in $StatColumns/Values.get_children():
+		each.queue_free()
+	for each in $StatColumns/Containers.get_children():
+		each.queue_free()
+	for each in $StatColumns/Notes.get_children():
+		each.queue_free()
 
 func update_list():
-	for each in $ItemTypes.get_children():
-		each.queue_free()
-	for each in $Quantities.get_children():
-		each.queue_free()
-	for each in $Names.get_children():
-		each.queue_free()
-	for each in $Weights.get_children():
-		each.queue_free()
-	for each in $Values.get_children():
-		each.queue_free()
-	for each in $Notes.get_children():
-		each.queue_free()
+	$CharacterNameLabel.text = character_name_string + " - " + character_class_string
 
 	for each in items.keys():
 		var new_icon = icon_scene.instance()
-		$ItemTypes.add_child(new_icon)
+		$StatColumns/ItemTypes.add_child(new_icon)
 		new_icon.get_node("Sprite").texture = item_icons[items[each]["Item Type"]]
 
 		var quantity_label = entry_box_scene.instance()
-		$Quantities.add_child(quantity_label)
+		$StatColumns/Quantities.add_child(quantity_label)
 		quantity_label.get_node("Label").text = str(items[each]["Quantity"])
 
 		var new_label = entry_box_scene.instance()
-		$Names.add_child(new_label)
+		$StatColumns/Names.add_child(new_label)
 		new_label.get_node("Label").text = each
 
 		var weight_label = entry_box_scene.instance()
-		$Weights.add_child(weight_label)
+		$StatColumns/Weights.add_child(weight_label)
 		weight_label.get_node("Label").text = str(items[each]["Weight"])
 
 		var value_label = entry_box_scene.instance()
-		$Values.add_child(value_label)
+		$StatColumns/Values.add_child(value_label)
 		value_label.get_node("Label").text = str(items[each]["Value"])
+		
+		var container_label = entry_box_scene.instance()
+		$StatColumns/Containers.add_child(container_label)
+		if items[each]["Container"] == null:
+			container_label.get_node("Label").text = " - "
+		else:
+			container_label.get_node("Label").text = str(items[each]["Container"])
 
 		var notes_label = entry_box_scene.instance()
-		$Notes.add_child(notes_label)
+		$StatColumns/Notes.add_child(notes_label)
 		notes_label.get_node("Label").text = items[each]["Notes"]
 		
 
@@ -67,5 +78,6 @@ func _on_AddItemButton_pressed():
 	new_item_menu.show()
 
 func _on_NewProfileMenu_new_profile(character_name_str, character_class_str):
-	character_name = character_name_str
+	character_name_string = character_name_str
+	character_class_string = character_class_str
 	reset()

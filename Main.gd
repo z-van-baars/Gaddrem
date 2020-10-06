@@ -10,7 +10,8 @@ func _on_AddItemButton_pressed():
 
 func save(file_name_string):
 	var data = {
-		"Character Name": $UILayer/InventoryMgr.character_name,
+		"Character Name": $UILayer/InventoryMgr.character_name_string,
+		"Character Class": $UILayer/InventoryMgr.character_class_string,
 		"Inventory": $UILayer/InventoryMgr.items}
 	var file = File.new()
 	file.open("res://Saves/" + file_name_string + ".json", File.WRITE)
@@ -25,9 +26,12 @@ func load_inv(file_name_string):
 		file.open("res://Saves/" + file_name_string + ".json", File.READ)
 		var data = parse_json(file.get_as_text())
 		file.close()
-		
-		$UILayer/InventoryMgr.character_name = data["Character Name"]
+		$UILayer/InventoryMgr.reset()
+		$UILayer/InventoryMgr.character_name_string = data["Character Name"]
+		$UILayer/InventoryMgr.character_class_string = data["Character Class"]
 		$UILayer/InventoryMgr.items = data["Inventory"]
+		print(data["Inventory"])
+		$UILayer/InventoryMgr.update_list()
 
 
 func _on_SaveMenu_save_as(file_name_string):

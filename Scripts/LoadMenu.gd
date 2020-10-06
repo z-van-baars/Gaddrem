@@ -42,11 +42,14 @@ func list_saves():
 
 
 func _on_SaveButton_pressed(profile_name):
+	reset()
 	file_to_load = profile_name
+	create_buttons()
 
 
 func _on_LoadButton_pressed():
 	emit_signal("load_profile", file_to_load)
+	hide()
 
 
 func _on_CancelButton_pressed():

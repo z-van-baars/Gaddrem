@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Fonts/TimesSS/TimesHeader18.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -12,37 +12,42 @@
 [ext_resource path="res://Assets/Icons/container.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Icons/misc.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Icons/potion.png" type="Texture" id=12]
+[ext_resource path="res://Styles/pressed_purple.tres" type="StyleBox" id=13]
+[ext_resource path="res://Styles/hover_purple.tres" type="StyleBox" id=14]
+[ext_resource path="res://Styles/normal_purple.tres" type="StyleBox" id=15]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=1]
 size = 46
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 26
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 18
 outline_color = Color( 0.635294, 0.635294, 0.635294, 1 )
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 26
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=9]
 size = 30
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 30
+outline_size = 1
+outline_color = Color( 0.411765, 0.345098, 0.254902, 1 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 24
+size = 30
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=7]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
 size = 28
 font_data = ExtResource( 4 )
 
@@ -60,23 +65,55 @@ __meta__ = {
 }
 
 [node name="Background" type="ColorRect" parent="UILayer/InventoryMgr"]
+margin_top = -2.21606
 margin_right = 1920.0
-margin_bottom = 1080.0
+margin_bottom = 1077.78
 color = Color( 0.207843, 0.145098, 0.219608, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Type" type="Button" parent="UILayer/InventoryMgr"]
-margin_left = 53.0
-margin_top = 150.0
-margin_right = 115.0
-margin_bottom = 183.0
+[node name="ColorRect" type="ColorRect" parent="UILayer/InventoryMgr/Background"]
+margin_left = 51.0
+margin_top = 186.0
+margin_right = 1350.0
+margin_bottom = 995.0
+color = Color( 0.133166, 0.0933838, 0.140625, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UILayer/InventoryMgr/Type"]
+[node name="ColorRect2" type="ColorRect" parent="UILayer/InventoryMgr/Background"]
+margin_left = 28.0
+margin_top = 149.0
+margin_right = 49.0
+margin_bottom = 995.0
+color = Color( 0.133166, 0.0933838, 0.140625, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatButtons" type="Control" parent="UILayer/InventoryMgr"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Type" type="Button" parent="UILayer/InventoryMgr/StatButtons"]
+margin_left = 53.0
+margin_top = 150.0
+margin_right = 115.0
+margin_bottom = 183.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/StatButtons/Type"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -92,16 +129,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quantity" type="Button" parent="UILayer/InventoryMgr"]
-margin_left = 118.0
+[node name="Quantity" type="Button" parent="UILayer/InventoryMgr/StatButtons"]
+margin_left = 117.0
 margin_top = 150.0
 margin_right = 203.0
 margin_bottom = 183.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UILayer/InventoryMgr/Quantity"]
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/StatButtons/Quantity"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -117,16 +158,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NameButton" type="Button" parent="UILayer/InventoryMgr"]
+[node name="NameButton" type="Button" parent="UILayer/InventoryMgr/StatButtons"]
 margin_left = 206.0
 margin_top = 150.0
 margin_right = 555.0
 margin_bottom = 183.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UILayer/InventoryMgr/NameButton"]
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/StatButtons/NameButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -142,23 +187,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WeightButton" type="Button" parent="UILayer/InventoryMgr"]
-margin_left = 558.5
+[node name="WeightButton" type="Button" parent="UILayer/InventoryMgr/StatButtons"]
+margin_left = 558.0
 margin_top = 150.0
-margin_right = 661.5
+margin_right = 664.0
 margin_bottom = 183.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UILayer/InventoryMgr/WeightButton"]
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/StatButtons/WeightButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -45.0
+margin_left = -46.0
 margin_top = -10.5
-margin_right = 45.0
+margin_right = 44.0
 margin_bottom = 10.5
 custom_fonts/font = ExtResource( 1 )
 text = "Weight (lbs)"
@@ -167,24 +216,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ValueButton" type="Button" parent="UILayer/InventoryMgr"]
-margin_left = 665.5
-margin_top = 150.0
-margin_right = 768.5
-margin_bottom = 183.0
+[node name="ValueButton" type="Button" parent="UILayer/InventoryMgr/StatButtons"]
+margin_left = 666.149
+margin_top = 150.25
+margin_right = 772.149
+margin_bottom = 183.25
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UILayer/InventoryMgr/ValueButton"]
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/StatButtons/ValueButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -45.0
-margin_top = -10.5
-margin_right = 45.0
-margin_bottom = 10.5
+margin_left = -47.1487
+margin_top = -10.7504
+margin_right = 42.8513
+margin_bottom = 10.2496
 custom_fonts/font = ExtResource( 1 )
 text = "Value"
 align = 1
@@ -192,24 +245,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NotesButton" type="Button" parent="UILayer/InventoryMgr"]
-margin_left = 773.0
+[node name="ContainerButton" type="Button" parent="UILayer/InventoryMgr/StatButtons"]
+margin_left = 775.0
 margin_top = 150.0
-margin_right = 1193.0
+margin_right = 927.0
 margin_bottom = 183.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UILayer/InventoryMgr/NotesButton"]
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/StatButtons/ContainerButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -45.0
-margin_top = -10.5
-margin_right = 45.0
-margin_bottom = 10.5
+margin_left = -47.1487
+margin_top = -10.7504
+margin_right = 42.8513
+margin_bottom = 10.2496
+custom_fonts/font = ExtResource( 1 )
+text = "Container"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotesButton" type="Button" parent="UILayer/InventoryMgr/StatButtons"]
+margin_left = 930.0
+margin_top = 150.0
+margin_right = 1350.0
+margin_bottom = 183.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/StatButtons/NotesButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -47.1487
+margin_top = -10.7504
+margin_right = 42.8513
+margin_bottom = 10.2496
 custom_fonts/font = ExtResource( 1 )
 text = "Notes"
 align = 1
@@ -217,16 +303,79 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ScrollUpButton" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 29.3746
+margin_top = 149.802
+margin_right = 48.3746
+margin_bottom = 170.802
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/ScrollUpButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.55196
+margin_top = -7.65207
+margin_right = 3.44804
+margin_bottom = 13.3479
+custom_fonts/font = ExtResource( 1 )
+text = "^"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollDownButton" type="Button" parent="UILayer/InventoryMgr"]
+margin_left = 28.8959
+margin_top = 973.112
+margin_right = 47.8959
+margin_bottom = 994.112
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/InventoryMgr/ScrollDownButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 4.59135
+margin_top = 7.48685
+margin_right = 12.5913
+margin_bottom = 28.4868
+rect_rotation = -180.0
+custom_fonts/font = ExtResource( 1 )
+text = "^"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AddItemButton" type="Button" parent="UILayer/InventoryMgr"]
-margin_left = 1590.0
-margin_top = 118.0
-margin_right = 1693.0
-margin_bottom = 156.0
+margin_left = 1549.0
+margin_top = 70.0
+margin_right = 1651.0
+margin_bottom = 108.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UILayer/InventoryMgr/AddItemButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -242,7 +391,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemTypes" type="VBoxContainer" parent="UILayer/InventoryMgr"]
+[node name="StatColumns" type="Control" parent="UILayer/InventoryMgr"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemTypes" type="VBoxContainer" parent="UILayer/InventoryMgr/StatColumns"]
 margin_left = 55.0
 margin_top = 196.0
 margin_right = 140.0
@@ -253,7 +409,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quantities" type="VBoxContainer" parent="UILayer/InventoryMgr"]
+[node name="Quantities" type="VBoxContainer" parent="UILayer/InventoryMgr/StatColumns"]
 margin_left = 118.0
 margin_top = 196.0
 margin_right = 203.0
@@ -264,7 +420,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Names" type="VBoxContainer" parent="UILayer/InventoryMgr"]
+[node name="Names" type="VBoxContainer" parent="UILayer/InventoryMgr/StatColumns"]
 margin_left = 206.0
 margin_top = 196.0
 margin_right = 555.0
@@ -274,24 +430,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Weights" type="VBoxContainer" parent="UILayer/InventoryMgr"]
+[node name="Weights" type="VBoxContainer" parent="UILayer/InventoryMgr/StatColumns"]
 margin_left = 560.0
 margin_top = 196.0
 margin_right = 663.0
 margin_bottom = 1020.0
 custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Values" type="VBoxContainer" parent="UILayer/InventoryMgr"]
+[node name="Values" type="VBoxContainer" parent="UILayer/InventoryMgr/StatColumns"]
 margin_left = 665.5
 margin_top = 196.0
 margin_right = 768.5
 margin_bottom = 1020.0
 custom_constants/separation = 32
 
-[node name="Notes" type="VBoxContainer" parent="UILayer/InventoryMgr"]
-margin_left = 774.0
+[node name="Containers" type="VBoxContainer" parent="UILayer/InventoryMgr/StatColumns"]
+margin_left = 776.0
 margin_top = 196.0
-margin_right = 1193.0
+margin_right = 927.0
+margin_bottom = 1020.0
+custom_constants/separation = 32
+
+[node name="Notes" type="VBoxContainer" parent="UILayer/InventoryMgr/StatColumns"]
+margin_left = 930.0
+margin_top = 196.0
+margin_right = 1349.0
 margin_bottom = 1020.0
 custom_constants/separation = 32
 __meta__ = {
@@ -303,8 +469,12 @@ margin_left = 1659.0
 margin_top = 22.0
 margin_right = 1762.0
 margin_bottom = 62.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="UILayer/InventoryMgr/LoadButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -322,8 +492,12 @@ margin_left = 1548.3
 margin_top = 22.0
 margin_right = 1651.3
 margin_bottom = 62.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="UILayer/InventoryMgr/NewProfileButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -341,8 +515,12 @@ margin_left = 1771.47
 margin_top = 22.0
 margin_right = 1874.47
 margin_bottom = 62.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="UILayer/InventoryMgr/SaveButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -356,11 +534,12 @@ text = "Save Profile"
 align = 1
 
 [node name="CharacterNameLabel" type="Label" parent="UILayer/InventoryMgr"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 76.0
 margin_top = 32.0
 margin_right = 1527.0
 margin_bottom = 83.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 text = "Character Name"
 
 [node name="MainMenu" type="Control" parent="UILayer"]
@@ -393,26 +572,28 @@ margin_left = 584.0
 margin_top = 372.0
 margin_right = 1264.0
 margin_bottom = 726.0
-color = Color( 0.355109, 0.249023, 0.375, 1 )
+color = Color( 0.2559, 0.183197, 0.269531, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HeaderLabel" type="Label" parent="UILayer/NewItemPopup"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 613.0
 margin_top = 380.0
 margin_right = 1229.0
 margin_bottom = 411.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Add New Item"
 align = 1
 
 [node name="ItemNameLabel" type="Label" parent="UILayer/NewItemPopup"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 630.0
 margin_top = 411.0
 margin_right = 762.0
 margin_bottom = 442.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Item Name"
 align = 1
 
@@ -421,14 +602,15 @@ margin_left = 630.0
 margin_top = 442.0
 margin_right = 1229.0
 margin_bottom = 482.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 
 [node name="QuantityLabel" type="Label" parent="UILayer/NewItemPopup"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 630.0
 margin_top = 488.0
 margin_right = 731.0
 margin_bottom = 519.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Quantity"
 align = 1
 __meta__ = {
@@ -440,14 +622,15 @@ margin_left = 630.0
 margin_top = 524.675
 margin_right = 732.0
 margin_bottom = 564.675
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 
 [node name="WeightLabel" type="Label" parent="UILayer/NewItemPopup"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 748.879
 margin_top = 488.0
 margin_right = 849.879
 margin_bottom = 519.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Weight"
 align = 1
 __meta__ = {
@@ -459,14 +642,15 @@ margin_left = 748.879
 margin_top = 524.675
 margin_right = 850.879
 margin_bottom = 564.675
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 
 [node name="ValueLabel" type="Label" parent="UILayer/NewItemPopup"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 865.057
 margin_top = 488.0
 margin_right = 966.057
 margin_bottom = 519.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Value"
 align = 1
 __meta__ = {
@@ -478,14 +662,15 @@ margin_left = 865.057
 margin_top = 524.675
 margin_right = 967.057
 margin_bottom = 564.675
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 
 [node name="TypeLabel" type="Label" parent="UILayer/NewItemPopup"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 1000.0
 margin_top = 488.0
 margin_right = 1109.0
 margin_bottom = 519.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Item Type"
 align = 1
 __meta__ = {
@@ -493,11 +678,12 @@ __meta__ = {
 }
 
 [node name="NotesLabel" type="Label" parent="UILayer/NewItemPopup"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 630.0
 margin_top = 573.377
 margin_right = 731.0
 margin_bottom = 604.377
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Notes"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -508,18 +694,22 @@ margin_left = 630.0
 margin_top = 610.0
 margin_right = 1229.0
 margin_bottom = 655.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 
 [node name="DoneButton" type="Button" parent="UILayer/NewItemPopup"]
 margin_left = 762.0
 margin_top = 669.0
 margin_right = 1088.0
 margin_bottom = 715.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UILayer/NewItemPopup/DoneButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -528,7 +718,7 @@ margin_left = -153.5
 margin_top = -17.0
 margin_right = 153.5
 margin_bottom = 17.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Done"
 align = 1
 
@@ -537,6 +727,9 @@ margin_left = 979.0
 margin_top = 527.0
 margin_right = 1023.0
 margin_bottom = 571.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -550,6 +743,9 @@ margin_left = 1025.01
 margin_top = 527.0
 margin_right = 1069.01
 margin_bottom = 571.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -563,6 +759,9 @@ margin_left = 1072.34
 margin_top = 527.0
 margin_right = 1116.34
 margin_bottom = 571.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -576,6 +775,9 @@ margin_left = 1119.84
 margin_top = 527.0
 margin_right = 1163.84
 margin_bottom = 571.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -589,6 +791,9 @@ margin_left = 1167.73
 margin_top = 527.0
 margin_right = 1211.73
 margin_bottom = 571.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -611,18 +816,22 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="UILayer/SaveMenu"]
 margin_right = 685.0
 margin_bottom = 238.0
-color = Color( 0.27451, 0.188235, 0.294118, 1 )
+color = Color( 0.258824, 0.188235, 0.278431, 1 )
 
 [node name="CancelButton" type="Button" parent="UILayer/SaveMenu"]
 margin_left = 349.0
 margin_top = 147.0
 margin_right = 549.0
 margin_bottom = 188.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UILayer/SaveMenu/CancelButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -640,11 +849,15 @@ margin_left = 128.233
 margin_top = 147.287
 margin_right = 328.233
 margin_bottom = 188.287
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UILayer/SaveMenu/ConfirmButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -668,15 +881,15 @@ custom_fonts/font = ExtResource( 1 )
 placeholder_text = "new_profile"
 
 [node name="Label" type="Label" parent="UILayer/SaveMenu"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 103.0
 margin_top = 36.0
 margin_right = 548.0
 margin_bottom = 70.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 9 )
 text = "Save Profile As"
 
 [node name="LoadMenu" type="Control" parent="UILayer"]
-visible = false
 margin_left = 584.0
 margin_top = 139.0
 margin_right = 1269.0
@@ -689,22 +902,23 @@ __meta__ = {
 [node name="Background" type="ColorRect" parent="UILayer/LoadMenu"]
 margin_right = 685.0
 margin_bottom = 780.0
-color = Color( 0.27451, 0.188235, 0.294118, 1 )
+color = Color( 0.23566, 0.15918, 0.25, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FileNameBackground" type="ColorRect" parent="UILayer/LoadMenu"]
-margin_left = 58.0
+margin_left = 56.568
 margin_top = 21.0
-margin_right = 543.0
+margin_right = 541.568
 margin_bottom = 89.0
-color = Color( 0.188235, 0.145098, 0.2, 1 )
+color = Color( 0.160784, 0.109804, 0.172549, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FileToLoadLabel" type="Label" parent="UILayer/LoadMenu/FileNameBackground"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -713,7 +927,7 @@ margin_left = -233.5
 margin_top = -17.0
 margin_right = 233.5
 margin_bottom = 17.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Text"
 align = 1
 
@@ -722,11 +936,15 @@ margin_left = 567.0
 margin_top = 13.0
 margin_right = 669.0
 margin_bottom = 49.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UILayer/LoadMenu/LoadButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -744,11 +962,15 @@ margin_left = 567.0
 margin_top = 59.5819
 margin_right = 669.0
 margin_bottom = 95.5819
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UILayer/LoadMenu/CancelButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -780,12 +1002,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="ColorRect" parent="UILayer/NewProfileMenu"]
+[node name="Stroke" type="ColorRect" parent="UILayer/NewProfileMenu"]
 margin_left = 584.0
 margin_top = 139.0
 margin_right = 1269.0
 margin_bottom = 488.0
-color = Color( 0.27451, 0.188235, 0.294118, 1 )
+color = Color( 0.368627, 0.247059, 0.4, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InsetBackground" type="ColorRect" parent="UILayer/NewProfileMenu"]
+margin_left = 586.0
+margin_top = 141.0
+margin_right = 1267.0
+margin_bottom = 486.0
+color = Color( 0.25098, 0.176471, 0.270588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -811,8 +1043,12 @@ margin_left = 714.0
 margin_top = 390.0
 margin_right = 878.0
 margin_bottom = 435.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="UILayer/NewProfileMenu/CreateButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -821,7 +1057,7 @@ margin_left = -32.0
 margin_top = -14.0
 margin_right = 32.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Create"
 align = 1
 
@@ -830,8 +1066,12 @@ margin_left = 950.0
 margin_top = 390.0
 margin_right = 1114.0
 margin_bottom = 435.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="UILayer/NewProfileMenu/CancelButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -840,16 +1080,17 @@ margin_left = -32.0
 margin_top = -14.0
 margin_right = 32.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Cancel"
 align = 1
 
 [node name="Label" type="Label" parent="UILayer/NewProfileMenu"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 630.0
 margin_top = 177.0
 margin_right = 1229.0
 margin_bottom = 211.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Create New Character Profile"
 align = 1
 __meta__ = {

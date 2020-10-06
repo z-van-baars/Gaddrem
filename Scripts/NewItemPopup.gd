@@ -16,6 +16,7 @@ onready var item_stats = {
 	"Weight": null,
 	"Value": null,
 	"Item Type": "Misc",
+	"Container": null,
 	"Notes": null}
 
 func check_fields():
@@ -50,6 +51,7 @@ func _on_DoneButton_pressed():
 		"Weight": null,
 		"Value": null,
 		"Item Type": "Misc",
+		"Container": null,
 		"Notes": null}
 
 

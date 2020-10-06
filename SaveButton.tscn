@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/TimesSS/TimesHeader18.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/SaveButton.gd" type="Script" id=2]
+[ext_resource path="res://Styles/pressed_purple.tres" type="StyleBox" id=3]
+[ext_resource path="res://Styles/normal_purple.tres" type="StyleBox" id=4]
+[ext_resource path="res://Styles/hover_purple.tres" type="StyleBox" id=5]
 
 [node name="SaveButton" type="Control"]
 anchor_right = 1.0
@@ -14,11 +17,15 @@ __meta__ = {
 [node name="Button" type="Button" parent="."]
 margin_right = 365.0
 margin_bottom = 37.0
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Button"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
