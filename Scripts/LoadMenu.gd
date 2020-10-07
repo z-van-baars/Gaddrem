@@ -20,7 +20,7 @@ func create_buttons():
 	for each in saves:
 		var new_button = button_scene.instance()
 		$SaveButtons.add_child(new_button)
-		new_button.get_node("Button/Label").text = each
+		new_button.get_node("Button/Character").text = each
 		new_button.connect(
 			"save_pressed",
 			self,

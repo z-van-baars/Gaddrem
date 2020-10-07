@@ -5,13 +5,17 @@ onready var icon_scene = preload("res://TypeIcon.tscn")
 onready var new_item_menu = get_tree().root.get_node("Main/UILayer/NewItemPopup")
 onready var item_icons = {
 	"Weapon": load("res://Assets/Icons/weapon.png"),
+	"Ammunition": load("res://Assets/Icons/ammunition.png"),
 	"Armor": load("res://Assets/Icons/weapon.png"),
 	"Container": load("res://Assets/Icons/container.png"),
 	"Potion": load("res://Assets/Icons/potion.png"),
+	"Poison": load("res://Assets/Icons/poison.png"),
+	"Food": load("res://Assets/Icons/food.png"),
 	"Misc": load("res://Assets/Icons/misc.png")}
 onready var items = {}
-onready var character_name_string = "New Character"
-onready var character_class_string = " "
+onready var sort_mode = "Name"
+onready var reverse_sort = false
+onready var sorted_items = []
 
 
 func _on_NewItemPopup_add_new_item(item_stats):
@@ -21,8 +25,6 @@ func _on_NewItemPopup_add_new_item(item_stats):
 
 func reset():
 	items = {}
-	character_name_string = " "
-	character_class_string = " "
 	for each in $StatColumns/ItemTypes.get_children():
 		each.queue_free()
 	for each in $StatColumns/Quantities.get_children():
@@ -39,9 +41,11 @@ func reset():
 		each.queue_free()
 
 func update_list():
-	$CharacterNameLabel.text = character_name_string + " - " + character_class_string
+	sort_items()
+	$CharacterNameLabel.text = (
+		get_tree().root.get_node("Main").character_name_string + " - " + get_tree().root.get_node("Main").character_class_string)
 
-	for each in items.keys():
+	for each in sorted_items:
 		var new_icon = icon_scene.instance()
 		$StatColumns/ItemTypes.add_child(new_icon)
 		new_icon.get_node("Sprite").texture = item_icons[items[each]["Item Type"]]
@@ -72,12 +76,35 @@ func update_list():
 		var notes_label = entry_box_scene.instance()
 		$StatColumns/Notes.add_child(notes_label)
 		notes_label.get_node("Label").text = items[each]["Notes"]
+
+func sort_items():
+	var unsorted = []
+	var sorted = []
+	if sort_mode == "Name":
+		unsorted = items.keys()
+		sorted = unsorted.sort()
+
+
+
+
+
+	if reverse_sort == false:
+		sorted_items = sorted
+	else:
+		var r_sorted = []
+		while sorted.size() > 0:
+			var next = sorted.pop_back()
+			r_sorted.append(next)
+		sorted_items = r_sorted
+			
+		
+			
 		
 
 func _on_AddItemButton_pressed():
 	new_item_menu.show()
 
 func _on_NewProfileMenu_new_profile(character_name_str, character_class_str):
-	character_name_string = character_name_str
-	character_class_string = character_class_str
 	reset()
+	update_list()
+

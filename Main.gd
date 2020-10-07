@@ -1,12 +1,8 @@
 extends Node2D
 
 onready var entrybox_scene = preload("res://EntryBox.tscn")
-
-
-
-func _on_AddItemButton_pressed():
-	pass # Replace with function body.
-
+onready var character_name_string = ""
+onready var character_class_string = ""
 
 func save(file_name_string):
 	var data = {
@@ -27,8 +23,9 @@ func load_inv(file_name_string):
 		var data = parse_json(file.get_as_text())
 		file.close()
 		$UILayer/InventoryMgr.reset()
-		$UILayer/InventoryMgr.character_name_string = data["Character Name"]
-		$UILayer/InventoryMgr.character_class_string = data["Character Class"]
+		character_name_string = data["Character Name"]
+		character_class_string = data["Character Class"]
+		
 		$UILayer/InventoryMgr.items = data["Inventory"]
 		$UILayer/InventoryMgr.update_list()
 
@@ -39,3 +36,10 @@ func _on_SaveMenu_save_as(file_name_string):
 
 func _on_LoadMenu_load_profile(file_name_string):
 	load_inv(file_name_string)
+
+
+func _on_CreateButton_pressed(character_name_str, character_class_str):
+	character_name_string = character_name_str
+	character_class_string = character_class_str
+	$UILayer/InventoryMgr.reset()
+	$UILayer/InventoryMgr.update_list()

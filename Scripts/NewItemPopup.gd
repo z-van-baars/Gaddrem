@@ -17,6 +17,7 @@ onready var item_stats = {
 	"Value": null,
 	"Item Type": "Misc",
 	"Container": null,
+	"Is Magical": false,
 	"Notes": null}
 
 func check_fields():
@@ -45,6 +46,7 @@ func _on_DoneButton_pressed():
 		hide()
 	for each in fields.keys():
 		fields[each].clear()
+	$MagicalButton/Label.visible = false
 	item_stats = {
 		"Name": null,
 		"Quantity": null,
@@ -52,11 +54,15 @@ func _on_DoneButton_pressed():
 		"Value": null,
 		"Item Type": "Misc",
 		"Container": null,
+		"Is Magical": false,
 		"Notes": null}
 
 
 func _on_WeaponButton_pressed():
 	item_stats["Item Type"] = "Weapon"
+
+func _on_AmmunitionButton_pressed():
+	item_stats["Item Type"] = "Ammunition"
 
 func _on_ArmorButton_pressed():
 	item_stats["Item Type"] = "Armor"
@@ -67,5 +73,24 @@ func _on_ContainerButton_pressed():
 func _on_PotionButton_pressed():
 	item_stats["Item Type"] = "Potion"
 
+func _on_PoisonButton_pressed():
+	item_stats["Item Type"] = "Poison"
+
+func _on_FoodButton_pressed():
+	item_stats["Item Type"] = "Food"
+
 func _on_MiscButton_pressed():
 	item_stats["Item Type"] = "Misc"
+
+func _on_MagicalButton_pressed():
+	item_stats["Is Magical"] = !item_stats["Is Magical"]
+	$MagicalButton/Label.visible = !$MagicalButton/Label.visible
+
+
+func _on_CancelButton_pressed():
+	hide()
+	for each in fields.keys():
+		fields[each].clear()
+	$MagicalButton/Label.visible
+
+
