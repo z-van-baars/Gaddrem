@@ -30,7 +30,6 @@ func load_inv(file_name_string):
 		$UILayer/InventoryMgr.character_name_string = data["Character Name"]
 		$UILayer/InventoryMgr.character_class_string = data["Character Class"]
 		$UILayer/InventoryMgr.items = data["Inventory"]
-		print(data["Inventory"])
 		$UILayer/InventoryMgr.update_list()
 
 

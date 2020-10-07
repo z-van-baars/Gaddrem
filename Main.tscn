@@ -33,7 +33,7 @@ font_data = ExtResource( 4 )
 size = 26
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=5]
 size = 30
 outline_size = 1
 outline_color = Color( 0.411765, 0.345098, 0.254902, 1 )
@@ -886,10 +886,11 @@ margin_left = 103.0
 margin_top = 36.0
 margin_right = 548.0
 margin_bottom = 70.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 5 )
 text = "Save Profile As"
 
 [node name="LoadMenu" type="Control" parent="UILayer"]
+visible = false
 margin_left = 584.0
 margin_top = 139.0
 margin_right = 1269.0
