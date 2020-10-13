@@ -80,9 +80,9 @@ __meta__ = {
 }
 
 [node name="Background" type="ColorRect" parent="UILayer/SpellsScreen"]
-margin_top = -0.21606
+margin_top = -2.0
 margin_right = 1920.0
-margin_bottom = 1079.78
+margin_bottom = 1078.0
 color = Color( 0.207843, 0.145098, 0.219608, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -600,6 +600,7 @@ rect_min_size = Vector2( 200, 40 )
 custom_constants/separation = 40
 
 [node name="NewSpellScreen" type="Control" parent="UILayer"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -824,9 +825,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -58.0
-margin_top = -14.0
+margin_top = -15.0
 margin_right = 58.0
-margin_bottom = 14.0
+margin_bottom = 13.0
 custom_fonts/font = SubResource( 2 )
 text = "N Creatures"
 align = 1
@@ -1247,6 +1248,38 @@ margin_bottom = 14.5
 custom_fonts/font = SubResource( 2 )
 text = "Thunder"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="None" type="Button" parent="UILayer/NewSpellScreen/DamageTypes"]
+margin_left = 356.312
+margin_top = 95.0
+margin_right = 491.312
+margin_bottom = 140.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/NewSpellScreen/DamageTypes/None"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -57.5
+margin_top = -13.5
+margin_right = 58.5
+margin_bottom = 14.5
+custom_fonts/font = SubResource( 2 )
+text = "None"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Confirm" type="Button" parent="UILayer/NewSpellScreen"]
 margin_left = 672.0
@@ -1944,7 +1977,6 @@ __meta__ = {
 }
 
 [node name="NewItemPopup" type="Control" parent="UILayer"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 5 )
@@ -1954,9 +1986,9 @@ __meta__ = {
 
 [node name="Stroke" type="ColorRect" parent="UILayer/NewItemPopup"]
 margin_left = 584.0
-margin_top = 372.0
+margin_top = 369.0
 margin_right = 1264.0
-margin_bottom = 785.0
+margin_bottom = 929.0
 color = Color( 0.368627, 0.247059, 0.4, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1966,7 +1998,7 @@ __meta__ = {
 margin_left = 586.0
 margin_top = 372.0
 margin_right = 1262.0
-margin_bottom = 783.0
+margin_bottom = 927.0
 color = Color( 0.2559, 0.183197, 0.269531, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2039,12 +2071,26 @@ margin_right = 850.879
 margin_bottom = 558.675
 custom_fonts/font = SubResource( 3 )
 
+[node name="#Dice" type="LineEdit" parent="UILayer/NewItemPopup"]
+margin_left = 787.0
+margin_top = 615.0
+margin_right = 857.0
+margin_bottom = 655.0
+custom_fonts/font = SubResource( 3 )
+
+[node name="DieType" type="LineEdit" parent="UILayer/NewItemPopup"]
+margin_left = 883.0
+margin_top = 615.0
+margin_right = 953.0
+margin_bottom = 655.0
+custom_fonts/font = SubResource( 3 )
+
 [node name="ValueLabel" type="Label" parent="UILayer/NewItemPopup"]
 modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 865.057
-margin_top = 482.0
+margin_top = 483.0
 margin_right = 966.057
-margin_bottom = 513.0
+margin_bottom = 514.0
 custom_fonts/font = SubResource( 4 )
 text = "Value"
 align = 1
@@ -2061,9 +2107,9 @@ custom_fonts/font = SubResource( 3 )
 
 [node name="TypeLabel" type="Label" parent="UILayer/NewItemPopup"]
 modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
-margin_left = 1000.0
+margin_left = 987.0
 margin_top = 484.0
-margin_right = 1109.0
+margin_right = 1096.0
 margin_bottom = 515.0
 custom_fonts/font = SubResource( 4 )
 text = "Item Type"
@@ -2080,6 +2126,45 @@ margin_right = 731.0
 margin_bottom = 607.0
 custom_fonts/font = SubResource( 4 )
 text = "Magical"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MagicalDamage" type="Label" parent="UILayer/NewItemPopup"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
+margin_left = 790.0
+margin_top = 576.0
+margin_right = 952.0
+margin_bottom = 607.0
+custom_fonts/font = SubResource( 4 )
+text = "Magic Damage"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DLabel" type="Label" parent="UILayer/NewItemPopup"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
+margin_left = 860.0
+margin_top = 619.0
+margin_right = 879.0
+margin_bottom = 650.0
+custom_fonts/font = SubResource( 4 )
+text = "D"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DivisibleLabel" type="Label" parent="UILayer/NewItemPopup"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
+margin_left = 625.0
+margin_top = 620.0
+margin_right = 726.0
+margin_bottom = 651.0
+custom_fonts/font = SubResource( 4 )
+text = "Divisible"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2115,12 +2200,71 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MagicDamageTypeButton" type="Button" parent="UILayer/NewItemPopup"]
+margin_left = 980.0
+margin_top = 615.0
+margin_right = 1218.0
+margin_bottom = 655.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/NewItemPopup/MagicDamageTypeButton"]
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -111.5
+margin_top = -15.0
+margin_right = 111.5
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 6 )
+text = "Magic Damage Type"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DivisibleButton" type="Button" parent="UILayer/NewItemPopup"]
+margin_left = 732.0
+margin_top = 620.0
+margin_right = 766.0
+margin_bottom = 654.0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UILayer/NewItemPopup/DivisibleButton"]
+visible = false
+modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.5
+margin_top = -15.0
+margin_right = 8.5
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 6 )
+text = "X"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="NotesLabel" type="Label" parent="UILayer/NewItemPopup"]
 modulate = Color( 0.921569, 0.768627, 0.25098, 1 )
 margin_left = 630.0
-margin_top = 632.377
+margin_top = 760.126
 margin_right = 731.0
-margin_bottom = 663.377
+margin_bottom = 791.126
 custom_fonts/font = SubResource( 4 )
 text = "Notes"
 __meta__ = {
@@ -2129,9 +2273,9 @@ __meta__ = {
 
 [node name="NotesField" type="LineEdit" parent="UILayer/NewItemPopup"]
 margin_left = 630.0
-margin_top = 669.0
+margin_top = 800.0
 margin_right = 1229.0
-margin_bottom = 714.0
+margin_bottom = 845.0
 custom_fonts/font = SubResource( 3 )
 
 [node name="WeaponButton" type="Button" parent="UILayer/NewItemPopup"]
@@ -2280,9 +2424,9 @@ texture = ExtResource( 11 )
 
 [node name="DoneButton" type="Button" parent="UILayer/NewItemPopup"]
 margin_left = 662.0
-margin_top = 728.0
+margin_top = 863.0
 margin_right = 908.0
-margin_bottom = 774.0
+margin_bottom = 909.0
 custom_styles/hover = ExtResource( 14 )
 custom_styles/pressed = ExtResource( 13 )
 custom_styles/normal = ExtResource( 15 )
@@ -2306,9 +2450,9 @@ align = 1
 
 [node name="CancelButton" type="Button" parent="UILayer/NewItemPopup"]
 margin_left = 947.0
-margin_top = 728.0
+margin_top = 863.0
 margin_right = 1183.0
-margin_bottom = 774.0
+margin_bottom = 909.0
 custom_styles/hover = ExtResource( 14 )
 custom_styles/pressed = ExtResource( 13 )
 custom_styles/normal = ExtResource( 15 )
